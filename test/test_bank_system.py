@@ -1,6 +1,7 @@
 
 from bank_system.account import Account
 from bank_system.Saving_account import SavingsAccount
+from bank_system.loan import Loan
 import pytest
 
 @pytest.fixture
@@ -86,3 +87,28 @@ def test_calculate_and_deposit_interest(savings_account_instance):
 def test_savings_account_str(savings_account_instance):
     """Test the string representation of a savings account."""
     assert str(savings_account_instance) == "Savings Account Number: 67890, Balance: 200.0, Interest Rate: 0.05"
+
+###
+import pytest
+from bank_system.loan import Loan  # Import the Loan class from your module
+
+@pytest.fixture
+def loan_instance():
+    # Create a Loan instance with some initial values for testing
+    customer = "John Doe"
+    amount = 1000
+    interest_rate = 0.1
+    return Loan(customer, amount, interest_rate)
+
+def test_make_payment(loan_instance):
+    
+    loan_instance.make_payment(500)  
+    assert loan_instance._Loan__remaining_balance == 500  
+
+   
+    loan_instance.make_payment(300)  
+    assert loan_instance._Loan__remaining_balance == 200  
+
+   
+    loan_instance.make_payment(300) 
+    assert loan_instance._Loan__remaining_balance >= 0 
