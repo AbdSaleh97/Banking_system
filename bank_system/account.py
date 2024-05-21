@@ -14,7 +14,7 @@ class Account(ABC):
     @abstractmethod
     def withdraw(self, amount):
         """Withdraw money from the account."""
-        pass
+        pass 
 
     def transfer(self, to_account, amount):
         """Transfer money to another account."""
