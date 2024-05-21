@@ -14,4 +14,3 @@ class SavingsAccount(Account):
 
     def __str__(self):
         return f"Savings Account Number: {self._Account__account_number}, Balance: {self._Account__balance}"
-
